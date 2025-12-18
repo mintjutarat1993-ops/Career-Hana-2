@@ -1,73 +1,18 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hana Microelectronics Recruitment</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <section id="page1" class="page active">
-        <div class="hero-bg">
-            <div class="overlay">
-                <h1>ยินดีต้อนรับเข้าสู่ <br> บริษัท ฮานา ไมโครอิเล็คโทรนิคส จำกัด (มหาชน)</h1>
-                <button onclick="navigateTo('page2')">สนใจสมัครงาน</button>
-            </div>
+<section id="page3" class="page">
+    <div class="form-card">
+        <div class="form-header">
+            <h2><i class="icon">📑</i> แบบฟอร์มสมัครงาน</h2>
         </div>
-    </section>
-
-    <section id="page2" class="page">
-        <div class="container">
-            <h2>ตำแหน่งงานว่าง</h2>
-            <ul class="job-list">
-                <li>1. Product / Process Engineer</li>
-                <li>2. Industrial Engineer</li>
-                <li>3. Facility Engineer</li>
-                <li>4. Safety Engineer/Officer</li>
-                <li>5. Production Supervisor</li>
-                <li>6. MN Technician</li>
-            </ul>
-
-            <hr>
-
-            <h2>สวัสดิการบริษัท</h2>
-            <div class="welfare-grid">
-                <span>1. โบนัสประจำปี</span> <span>2. กองทุนสำรองเลี้ยงชีพ</span>
-                <span>3. ประกันสังคม</span> <span>4. สหกรณ์ออมทรัพย์</span>
-                <span>5. หอพักราคาสำหรับพนักงาน</span> <span>6. ฟิตเนส</span>
-                <span>7. ค่ารักษาพยาบาล</span> <span>8. เบี้ยขยัน</span>
-                <span>9. ค่าอาหาร</span> <span>10. ค่าเดินทาง</span>
-            </div>
-            <button class="btn-next" onclick="navigateTo('page3')">กรอกแบบฟอร์มสมัครงาน</button>
+        
+        <div class="tab-indicator">
+            <span class="active-tab">1. ข้อมูลส่วนตัวและการศึกษา</span>
         </div>
-    </section>
 
-    <section id="page3" class="page">
-        <div class="container">
-            <h2>แบบฟอร์มสมัครงาน</h2>
-            <div class="ai-box">
-                <p>✨ <strong>AI Assistant:</strong> วาง Resume ของคุณที่นี่เพื่อให้ AI ช่วยกรอกข้อมูลเบื้องต้น</p>
-                <textarea id="ai-input" placeholder="วางข้อความจาก Resume ของคุณที่นี่..."></textarea>
-                <button type="button" onclick="analyzeResume()">วิเคราะห์ข้อมูลด้วย AI</button>
-            </div>
-
-            <form id="jobForm">
-                <h3>ส่วนที่ 1: ข้อมูลส่วนตัว</h3>
-                <input type="text" id="name" placeholder="ชื่อ-นามสกุล (ไทย+อังกฤษ)" required>
-                <input type="number" id="age" placeholder="อายุ">
-                <input type="text" id="address" placeholder="ที่อยู่ปัจจุบัน">
-
-                <h3>ส่วนที่ 2: การศึกษา</h3>
-                <input type="text" id="edu" placeholder="สถาบัน / คณะ / สาขา">
-                <input type="text" id="gpa" placeholder="เกรดเฉลี่ย">
-
-                <h3>ส่วนที่ 3: ประสบการณ์ทำงาน (ย้อนหลัง 3 แห่ง)</h3>
-                <textarea placeholder="ชื่อบริษัท / ตำแหน่ง / หน้าที่รับผิดชอบ"></textarea>
-
-                <h3>ส่วนที่ 4: ตำแหน่งที่สมัคร</h3>
-                <select id="job-select">
-                    <option value="">-- เลือกตำแหน่งงาน --</option>
+        <form id="jobForm" class="styled-form">
+            <div class="form-group full">
+                <label>ตำแหน่งที่ต้องการสมัคร *</label>
+                <select id="job-select" required>
+                    <option value="">-- เลือกตำแหน่งที่ต้องการสมัคร --</option>
                     <option>Product / Process Engineer</option>
                     <option>Industrial Engineer</option>
                     <option>Facility Engineer</option>
@@ -75,23 +20,65 @@
                     <option>Production Supervisor</option>
                     <option>MN Technician</option>
                 </select>
-                <input type="text" placeholder="เงินเดือนที่คาดหวัง">
-                
+            </div>
+
+            <div class="form-row">
+                <div class="form-group half">
+                    <label>คำนำหน้า *</label>
+                    <select required>
+                        <option value="">-- เลือก --</option>
+                        <option>นาย</option>
+                        <option>นาง</option>
+                        <option>นางสาว</option>
+                    </select>
+                </div>
+                <div class="form-group half">
+                    <label>วัน/เดือน/ปีเกิด *</label>
+                    <input type="date" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group half">
+                    <label>ชื่อ (ภาษาไทย) *</label>
+                    <input type="text" placeholder="ระบุชื่อภาษาไทย">
+                </div>
+                <div class="form-group half">
+                    <label>นามสกุล (ภาษาไทย) *</label>
+                    <input type="text" placeholder="ระบุนามสกุลภาษาไทย">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group half">
+                    <label>ชื่อ (ภาษาอังกฤษ) *</label>
+                    <input type="text" placeholder="First Name (English)">
+                </div>
+                <div class="form-group half">
+                    <label>นามสกุล (ภาษาอังกฤษ) *</label>
+                    <input type="text" placeholder="Last Name (English)">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group half">
+                    <label>เบอร์โทรศัพท์ *</label>
+                    <input type="tel" placeholder="08x-xxxxxxx">
+                </div>
+                <div class="form-group half">
+                    <label>อีเมล *</label>
+                    <input type="email" placeholder="example@mail.com">
+                </div>
+            </div>
+
+            <div class="form-group full">
+                <label>ที่อยู่ปัจจุบัน *</label>
+                <textarea rows="2" placeholder="บ้านเลขที่, ถนน, แขวง/ตำบล..."></textarea>
+            </div>
+
+            <div class="form-actions">
                 <button type="button" class="btn-submit" onclick="navigateTo('page4')">ส่งข้อมูลสมัครงาน</button>
-            </form>
-        </div>
-    </section>
-
-    <section id="page4" class="page">
-        <div class="container success-msg">
-            <div class="icon-check">✔️</div>
-            <h1>ท่านส่งข้อมูลเรียบร้อยแล้ว</h1>
-            <p>ขอบคุณที่สนใจสมัครงานกับเรา</p>
-            <button onclick="navigateTo('page1')">กลับหน้าหลัก</button>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
-</body>
-
-</html>
+            </div>
+        </form>
+    </div>
+</section>
