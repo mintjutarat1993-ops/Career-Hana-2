@@ -1,84 +1,158 @@
-<section id="page3" class="page">
-    <div class="form-card">
-        <div class="form-header">
-            <h2><i class="icon">📑</i> แบบฟอร์มสมัครงาน</h2>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hana Microelectronics Recruitment</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <section id="page1" class="page active">
+        <div class="hero-bg" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070');">
+            <div class="hero-content">
+                <h1>ยินดีต้อนรับเข้าสู่ <br> บริษัท ฮานา ไมโครอิเล็คโทรนิคส จำกัด (มหาชน)</h1>
+                <button class="btn-main" onclick="navigateTo('page2')">สนใจสมัครงาน</button>
+            </div>
         </div>
-        
-        <div class="tab-indicator">
-            <span class="active-tab">1. ข้อมูลส่วนตัวและการศึกษา</span>
+    </section>
+
+    <section id="page2" class="page" style="display:none;">
+        <div class="container">
+            <div class="card">
+                <h2 class="title-blue">📍 ตำแหน่งงานว่าง</h2>
+                <ul class="job-list">
+                    <li>1. Product / Process engineer</li>
+                    <li>2. Industrial engineer</li>
+                    <li>3. Facility engineer</li>
+                    <li>4. Safety engineer/officer</li>
+                    <li>5. Production Supervisor</li>
+                    <li>6. MN technician</li>
+                </ul>
+
+                <hr class="divider">
+
+                <h2 class="title-blue">🎁 สวัสดิการบริษัท</h2>
+                <div class="welfare-grid">
+                    <div class="w-item">1. โบนัสประจำปี</div>
+                    <div class="w-item">2. กองทุนสำรองเลี้ยงชีพ</div>
+                    <div class="w-item">3. ประกันสังคม</div>
+                    <div class="w-item">4. สหกรณ์ออมทรัพย์</div>
+                    <div class="w-item">5. หอพักราคาพนักงาน</div>
+                    <div class="w-item">6. ฟิตเนส</div>
+                    <div class="w-item">7. ค่ารักษาพยาบาล</div>
+                    <div class="w-item">8. เบี้ยขยัน</div>
+                    <div class="w-item">9. ค่าอาหาร</div>
+                    <div class="w-item">10. ค่าเดินทาง</div>
+                </div>
+                
+                <div class="center-btn">
+                    <button class="btn-next" onclick="navigateTo('page3')">กรอกแบบฟอร์มสมัครงาน</button>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <form id="jobForm" class="styled-form">
-            <div class="form-group full">
-                <label>ตำแหน่งที่ต้องการสมัคร *</label>
-                <select id="job-select" required>
-                    <option value="">-- เลือกตำแหน่งที่ต้องการสมัคร --</option>
-                    <option>Product / Process Engineer</option>
-                    <option>Industrial Engineer</option>
-                    <option>Facility Engineer</option>
-                    <option>Safety Engineer/Officer</option>
-                    <option>Production Supervisor</option>
-                    <option>MN Technician</option>
-                </select>
-            </div>
+    <section id="page3" class="page" style="display:none;">
+        <div class="container">
+            <div class="form-card">
+                <div class="form-header">
+                    <h2>📝 แบบฟอร์มสมัครงาน</h2>
+                </div>
 
-            <div class="form-row">
-                <div class="form-group half">
-                    <label>คำนำหน้า *</label>
-                    <select required>
-                        <option value="">-- เลือก --</option>
-                        <option>นาย</option>
-                        <option>นาง</option>
-                        <option>นางสาว</option>
-                    </select>
+                <div class="ai-box">
+                    <p><strong>✨ ระบบช่วยกรอกอัตโนมัติ (AI Assistant)</strong></p>
+                    <textarea id="ai-input" placeholder="คัดลอกข้อความใน Resume มาวางที่นี่เพื่อให้ AI ช่วยกรอกข้อมูล..."></textarea>
+                    <button type="button" class="btn-ai" onclick="analyzeResume()">วิเคราะห์ข้อมูลด้วย AI</button>
                 </div>
-                <div class="form-group half">
-                    <label>วัน/เดือน/ปีเกิด *</label>
-                    <input type="date" required>
-                </div>
-            </div>
 
-            <div class="form-row">
-                <div class="form-group half">
-                    <label>ชื่อ (ภาษาไทย) *</label>
-                    <input type="text" placeholder="ระบุชื่อภาษาไทย">
-                </div>
-                <div class="form-group half">
-                    <label>นามสกุล (ภาษาไทย) *</label>
-                    <input type="text" placeholder="ระบุนามสกุลภาษาไทย">
-                </div>
-            </div>
+                <form id="jobForm">
+                    <div class="form-section">
+                        <h3>ส่วนที่ 1: ข้อมูลส่วนตัว</h3>
+                        <div class="form-row">
+                            <div class="form-group half"><label>ชื่อ-นามสกุล (ไทย) *</label><input type="text" id="name-th" required></div>
+                            <div class="form-group half"><label>ชื่อ-นามสกุล (อังกฤษ) *</label><input type="text" id="name-en" required></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group third"><label>อายุ</label><input type="number"></div>
+                            <div class="form-group two-third"><label>วันเดือนปีเกิด</label><input type="date"></div>
+                        </div>
+                        <div class="form-group"><label>ที่อยู่บ้านปัจจุบัน</label><input type="text"></div>
+                        <div class="form-group"><label>ที่อยู่ภูมิลำเนา</label><input type="text"></div>
+                        <div class="form-row">
+                            <div class="form-group half"><label>เบอร์โทร *</label><input type="tel" id="tel" required></div>
+                            <div class="form-group half"><label>Email *</label><input type="email" id="email" required></div>
+                        </div>
+                    </div>
 
-            <div class="form-row">
-                <div class="form-group half">
-                    <label>ชื่อ (ภาษาอังกฤษ) *</label>
-                    <input type="text" placeholder="First Name (English)">
-                </div>
-                <div class="form-group half">
-                    <label>นามสกุล (ภาษาอังกฤษ) *</label>
-                    <input type="text" placeholder="Last Name (English)">
-                </div>
-            </div>
+                    <div class="form-section">
+                        <h3>ส่วนที่ 2: ข้อมูลการศึกษา</h3>
+                        <div class="form-row">
+                            <div class="form-group half"><label>ระดับการศึกษา</label><input type="text"></div>
+                            <div class="form-group half"><label>สถาบัน</label><input type="text"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group third"><label>คณะ</label><input type="text"></div>
+                            <div class="form-group third"><label>สาขา</label><input type="text"></div>
+                            <div class="form-group third"><label>ปีที่จบ/เกรดเฉลี่ย</label><input type="text" id="gpa"></div>
+                        </div>
+                    </div>
 
-            <div class="form-row">
-                <div class="form-group half">
-                    <label>เบอร์โทรศัพท์ *</label>
-                    <input type="tel" placeholder="08x-xxxxxxx">
-                </div>
-                <div class="form-group half">
-                    <label>อีเมล *</label>
-                    <input type="email" placeholder="example@mail.com">
-                </div>
-            </div>
+                    <div class="form-section">
+                        <h3>ส่วนที่ 3: ประสบการณ์ทำงาน (ย้อนหลัง 3 แห่ง)</h3>
+                        <div class="work-exp">
+                            <textarea placeholder="แห่งที่ 1: ชื่อบริษัท / ตำแหน่ง / ปีพ.ศ. / จำนวนปี / หน้าที่"></textarea>
+                            <textarea placeholder="แห่งที่ 2: ชื่อบริษัท / ตำแหน่ง / ปีพ.ศ. / จำนวนปี / หน้าที่"></textarea>
+                            <textarea placeholder="แห่งที่ 3: ชื่อบริษัท / ตำแหน่ง / ปีพ.ศ. / จำนวนปี / หน้าที่"></textarea>
+                        </div>
+                        <p><strong>บุคคลอ้างอิง:</strong></p>
+                        <div class="form-row">
+                            <div class="form-group third"><label>ชื่อ-นามสกุล</label><input type="text"></div>
+                            <div class="form-group third"><label>ตำแหน่ง</label><input type="text"></div>
+                            <div class="form-group third"><label>เบอร์โทร</label><input type="tel"></div>
+                        </div>
+                    </div>
 
-            <div class="form-group full">
-                <label>ที่อยู่ปัจจุบัน *</label>
-                <textarea rows="2" placeholder="บ้านเลขที่, ถนน, แขวง/ตำบล..."></textarea>
-            </div>
+                    <div class="form-section">
+                        <h3>ส่วนที่ 4: ความสนใจ</h3>
+                        <div class="form-group">
+                            <label>สนใจสมัครตำแหน่งอะไร *</label>
+                            <select id="job-select" required>
+                                <option value="">-- เลือกตำแหน่งงาน --</option>
+                                <option>Product / Process engineer</option>
+                                <option>Industrial engineer</option>
+                                <option>Facility engineer</option>
+                                <option>Safety engineer/officer</option>
+                                <option>Production Supervisor</option>
+                                <option>MN technician</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half"><label>เงินเดือนที่คาดหวัง</label><input type="text"></div>
+                            <div class="form-group half"><label>วันที่สามารถเริ่มงานได้</label><input type="date"></div>
+                        </div>
+                    </div>
 
-            <div class="form-actions">
-                <button type="button" class="btn-submit" onclick="navigateTo('page4')">ส่งข้อมูลสมัครงาน</button>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">ส่งข้อมูลสมัครงาน</button>
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
-</section>
+        </div>
+    </section>
+
+    <section id="page4" class="page" style="display:none;">
+        <div class="container text-center">
+            <div class="success-card">
+                <div class="success-icon">✔️</div>
+                <h1>ท่านส่งข้อมูลเรียบร้อยแล้ว</h1>
+                <p>ขอบคุณที่สนใจสมัครงานกับเรา</p>
+                <button class="btn-next" onclick="navigateTo('page1')">กลับหน้าหลัก</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
